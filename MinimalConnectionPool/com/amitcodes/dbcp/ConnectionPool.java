@@ -80,7 +80,7 @@ public class ConnectionPool {
         return pool.take();
     }
 
-    public synchronized void surrenderConnection(Connection conn) {
+    public void surrenderConnection(Connection conn) {
         if(!(conn instanceof PooledConnection)) { return; }
         pool.offer(conn); // offer() as we do not want to go beyond capacity
     }
